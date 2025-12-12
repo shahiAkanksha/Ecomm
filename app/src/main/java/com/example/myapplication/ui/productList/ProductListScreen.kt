@@ -1,6 +1,7 @@
 package com.example.myapplication.ui.productList
 
 import ProductListViewModel
+import android.net.Uri
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -58,9 +59,12 @@ fun ProductListScreen(
     ) {
         items(products.value.size) { item ->
 
-            ProductCard(products.value[item]) {
-                val json = Gson().toJson(item)
-                navController.navigate("detail/$json")
+            val product = products.value[item]
+
+            ProductCard(product) {
+                val json = Gson().toJson(product)
+                val encoded = Uri.encode(json)
+                navController.navigate("detail/$encoded")
             }
         }
     }
@@ -138,7 +142,7 @@ fun ProductCard(product: Product, onClick: () -> Unit) {
 
             Spacer(Modifier.height(6.dp))
 
-            Row(verticalAlignment = Alignment.CenterVertically) {
+            Row{
                 Text(text = "⭐", fontSize = 14.sp)
                 Text(
                     text = "${product.rating.rate} (${product.rating.count})",

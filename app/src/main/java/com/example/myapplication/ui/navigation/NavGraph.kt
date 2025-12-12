@@ -1,6 +1,7 @@
 package com.example.myapplication.ui.navigation
 
 import ProductListViewModel
+import android.net.Uri
 import androidx.compose.runtime.Composable
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
@@ -30,11 +31,10 @@ fun NavGraph(repository: ProductRepo) {
 
         composable(
             "detail/{product}",
-            arguments = listOf(
-                navArgument("product") { type = NavType.StringType }
-            )
+            arguments = listOf(navArgument("product") { type = NavType.StringType })
         ) { entry ->
-            val productJson = entry.arguments?.getString("product")!!
+            val encoded = entry.arguments?.getString("product")!!
+            val productJson = Uri.decode(encoded)
             ProductDetailScreen(productJson)
         }
     }
