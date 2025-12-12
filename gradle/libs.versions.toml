@@ -15,7 +15,7 @@ compose = "1.6.0"
 
 # Plugin Versions
 agp = "8.13.1"
-kotlin = "1.9.20"
+kotlin = "2.0.21"
 material3Version = "1.4.0"
 #ksp = "2.0.0-1.0.24"
 

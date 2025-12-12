@@ -52,7 +52,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.4")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.4")
     //coil
-    implementation("io.coil-kt:coil-compose:3.0.0")
+    //implementation("io.coil-kt:coil-compose:3.0.0")
     //glide
     implementation("com.github.skydoves:landscapist-glide:2.2.13")
 
