@@ -35,7 +35,8 @@ fun NavGraph(repository: ProductRepo) {
         ) { entry ->
             val encoded = entry.arguments?.getString("product")!!
             val productJson = Uri.decode(encoded)
-            ProductDetailScreen(productJson)
+            ProductDetailScreen(productJson,
+                    navController = navController )
         }
     }
 }

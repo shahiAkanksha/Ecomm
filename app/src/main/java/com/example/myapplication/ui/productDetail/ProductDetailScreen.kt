@@ -18,6 +18,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.myapplication.data.remote.response.Product
 import com.google.gson.Gson
 import com.skydoves.landscapist.ImageOptions
@@ -26,7 +27,7 @@ import com.skydoves.landscapist.glide.GlideImage
 @Composable
 fun ProductDetailScreen(
     productJson: String,
-    onBack: () -> Unit = {}
+    navController: NavController,
 ) {
 
     val product = remember { Gson().fromJson(productJson, Product::class.java) }
@@ -34,7 +35,9 @@ fun ProductDetailScreen(
 
     Scaffold(
         topBar = {
-            TopBar(onBack)
+            TopBar(onBack = {
+                navController.popBackStack()
+            })
         },
         bottomBar = {
             AddToCartButton(onClick = {})

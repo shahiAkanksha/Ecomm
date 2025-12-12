@@ -94,7 +94,6 @@ fun ProductCard(product: Product, onClick: () -> Unit) {
                 .fillMaxWidth()
                 .padding(12.dp),
             verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
         ) {
 
             GlideImage(
